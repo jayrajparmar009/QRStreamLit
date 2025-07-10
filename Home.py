@@ -18,17 +18,8 @@ def generate_qr_code(selected_aes):
     # Get the current app URL dynamically
     import os
     
-    # Check if we're running locally or on cloud
-    try:
-        # Simple check for local development
-        import socket
-        socket.create_connection(("localhost", 8501), timeout=1)
-        # If connection succeeds, we're running locally
-        base_url = "http://localhost:8501/Page_2"
-    except (socket.error, OSError):
-        # If connection fails or we're on cloud, use the deployed URL
-        base_url = "https://rcmqrcode.streamlit.app/Page_2"
-    
+    base_url = "https://rcmqrcode.streamlit.app/Page_2"
+
     # Create the URL for page 2 with selected AEs as query parameters
     ae_params = "&".join([f"ae={ae}" for ae in selected_aes])
     full_url = f"{base_url}?{ae_params}"
