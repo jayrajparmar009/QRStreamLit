@@ -15,8 +15,23 @@ st.set_page_config(
 
 def generate_qr_code(selected_aes):
     """Generate QR code for the selected AEs"""
+    # Get the current app URL dynamically
+    import os
+    
+    # Check if we're running on Streamlit Cloud or locally
+    if 'STREAMLIT_SHARING_MODE' in os.environ or 'STREAMLIT_CLOUD' in os.environ:
+        # Running on Streamlit Cloud - get the URL from the browser
+        base_url = st.experimental_get_query_params().get('_url', [''])[0]
+        if base_url:
+            base_url = base_url.replace('/Home', '/Page_2')
+        else:
+            # Fallback for cloud deployment
+            base_url = "https://your-app-name.streamlit.app/Page_2"
+    else:
+        # Running locally - use localhost
+        base_url = "http://localhost:8501/Page_2"
+    
     # Create the URL for page 2 with selected AEs as query parameters
-    base_url = "http://localhost:8501/Page_2"  # Adjust this URL as needed
     ae_params = "&".join([f"ae={ae}" for ae in selected_aes])
     full_url = f"{base_url}?{ae_params}"
     
