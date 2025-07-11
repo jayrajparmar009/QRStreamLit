@@ -13,12 +13,13 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+
 def generate_qr_code(selected_aes):
     """Generate QR code for the selected AEs"""
     # Get the current app URL dynamically
     import os
     
-    base_url = "https://ubiquitous-space-robot-pg66xrvpxqj266jr-8501.app.github.dev/Page_2"
+    base_url = "https://qrapp-k6zbn7z9mh.streamlit.app/Page_2"
 
     # Create the URL for page 2 with selected AEs as query parameters
     ae_params = "&".join([f"ae={ae}" for ae in selected_aes])
