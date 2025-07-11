@@ -36,7 +36,7 @@ def generate_qr_code(selected_aes):
     
     # Create QR code image
     qr_image = qr.make_image(fill_color="black", back_color="white")
-    
+    st.text(full_url)
     # Convert to bytes for display
     buffer = BytesIO()
     qr_image.save(buffer, format='PNG')
