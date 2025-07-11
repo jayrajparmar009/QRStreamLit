@@ -18,7 +18,7 @@ def generate_qr_code(selected_aes):
     # Get the current app URL dynamically
     import os
     
-    base_url = "https://rcmqrcode.streamlit.app/Page_2"
+    base_url = "https://ubiquitous-space-robot-pg66xrvpxqj266jr-8501.app.github.dev/Page_2"
 
     # Create the URL for page 2 with selected AEs as query parameters
     ae_params = "&".join([f"ae={ae}" for ae in selected_aes])
